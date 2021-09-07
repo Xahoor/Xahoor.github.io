@@ -1,0 +1,245 @@
+.navbar-brand{
+    display: none;
+}
+
+.main-logo{
+    padding: 30px 30px 0px 30px;
+    margin-left: 120px;
+    font-size: 2.5rem;;
+}
+
+.main-logo a:hover{
+    text-decoration: none;
+    color: #eee;
+}
+.description{
+    margin-top: 200px;
+    font-family: 'Epilogue';
+    color: #eee;
+    padding: 30px 30px 0px 30px;
+    margin-left: 120px;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.description p{
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.brand-name{
+    font-family: 'Epilogue';
+    color: #eee;
+    padding-left: 10px;
+    border-left: 2px solid #eee;
+
+}
+
+.small_sc{
+background-image: url("../images/section.jpg");
+background-repeat: no-repeat;
+background-size: 100% 100%;
+}
+
+.topnav{
+    float: left;
+    font-family: 'Epilogue';
+}
+
+.topnav > li{
+margin-left: 3em;
+margin-right: 3em;
+margin-top: 35px;
+font-size: 1.1rem;
+font-weight: 600;
+}
+
+.topnav > li .nav-link{
+color: #4B0082;
+}
+
+
+#logo{
+    height: 750px;
+    background-color: #9921e8;
+background-image: linear-gradient(315deg, #9921e8 0%, #5f72be 74%);
+}
+
+.btn_toggler{
+    border:none;
+    background-color: #5f72be;
+    border-radius: 50% 50%;
+    color: #eee;
+    padding: 10px;
+}
+
+
+#portfolio{
+margin-top: 60px;
+}
+#portfolio h2{
+text-align: center;
+color: #5f72be;
+font-size: 2.5rem;
+}
+#portfolio h2 span{
+padding-bottom: 5px;
+
+}
+
+#portfolio h4 {
+text-align: center;
+}
+#portfolio h4 span{
+font-size: 1.3rem;
+font-weight: 500;
+color: rgba(0,0,0,.5);
+
+}
+
+.photos{
+position: relative;
+width:  100%;
+}
+
+.photos img{
+width: 100%;
+height: 200px;
+margin-top:  50px;
+}
+
+.overlay{
+position: absolute; 
+background-color: #9921e8;
+background-image: linear-gradient(315deg, #9921e8 0%, #5f72be 74%);
+width: 90%;
+color: #f1f1f1; 
+opacity:0;
+color: white;
+font-size: 20px;
+text-align: center;
+margin-top: -200px;
+height: 200px;
+font-family: 'Epilogue';
+}
+.overlay span{
+margin-top: 50px;
+border-bottom: 1px solid #eee;
+padding-left: 5px;
+padding-right: 5px;
+
+}
+
+.overlay p{
+margin-top: 20px;
+font-size: 12px;
+padding-left: 5px;
+padding-right: 5px;
+}
+
+.photos:hover .overlay {
+opacity: 1;
+}
+
+#about{
+margin-top: 100px;
+background-color: #00004c;
+color: #eee;
+font-family: 'Epilogue';
+}
+
+#about .about_us h2{
+text-align: center;
+color: #eee;
+font-size: 2.5rem;
+padding-bottom: 20px;
+padding-top: 20px;
+margin-top: 20px;
+}
+
+#about .founder{
+text-align: right;
+}
+
+#about img{
+width: 200px;
+height: 200px;
+border-radius: 50% 50%;
+}
+
+
+#contact{
+margin-top: 100px;
+color: rgba(0,0,0,.5);
+font-family: 'Epilogue';
+}
+
+#contact h3{
+font-size: 2.5rem;
+
+}
+
+#contact .gmail{
+font-size: 1.1rem;
+}
+
+#contact .chat{
+color: #333;
+font-size: 1.1rem;
+}
+
+.footer{
+margin-top:  50px;
+background-color: #161616;
+}
+.footer h2{
+font-size: 1.5rem;
+margin-left: 200px;
+padding: 30px;
+color: #8c8b8a;
+
+
+}
+
+.footer h2 span{
+color: #ccc;
+}
+
+
+@media screen and (max-width: 992px) {
+    #logo{
+    display: none;
+}
+
+.navbar-brand{
+    display: block;
+    color: #eee;
+}
+
+.brand-name{
+    color:  #eee;
+}
+.topnav{
+    float: left;
+}
+
+.small_sc{
+    width: 100%;
+    height:  500px;
+}
+
+.overlay{
+    width: 100%;
+}
+
+#about .founder{
+text-align: center;
+}
+
+.footer h2{
+margin: 0;
+}
+}
