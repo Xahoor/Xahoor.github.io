@@ -247,11 +247,29 @@ margin: 0;
 }
 }
 
+.whatsapp_float{
+    position: fixed;
+    bottom: 40px;
+     right: 40px;
+     
+     
+     
+ }
+
+ .whatsapp_float img{
+     width: 140px;
+     height: 65px;
+ }
+
 
 @media screen and (max-width: 500px) {
 
     #photos a{
         width: 100%;
+    }
+    .whatsapp_float img{
+        width: 80px;
+        height: 40px;
     }
 }
 
