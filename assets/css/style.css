@@ -219,6 +219,8 @@ hr{
 
 }
 
+
+
 @media screen and (max-width: 780px) {
     
     .single-portfolio{
@@ -243,6 +245,20 @@ hr{
     }
 
 }
+
+@media screen and (max-width: 500px) {
+
+    .portfolio-desc{
+        bottom: 10% !important;
+    }
+
+    .portfolio-desc h3{
+         font-size: 0.90rem;
+    }
+
+}
+
+
 
 
 /* #portfolio{
