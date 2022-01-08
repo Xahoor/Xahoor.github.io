@@ -1406,6 +1406,12 @@ footer .credits a {
   font-size: 40px;
 }
 
+@media (max-width: 600px) {
+.contact .phone p{
+  color: #fff;
+}
+}
+
 .contact .btn{
   padding: 10px 25px 10px 25px;
   margin: 5px;
