@@ -1,0 +1,209 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+
+#banner{
+    background: rgba(0, 0, 0, 0.9);
+    background-size: cover;
+    background-position: center;
+    height: 12vh;
+}
+
+.logo{
+    width: 140px;
+    position: absolute;
+    top: 4%;
+    left: 10%;
+}
+
+
+
+#sideNav{
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+nav ul li{
+    list-style: none;
+    margin: 50px 20px;
+
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #fff;
+}
+
+#menuBtn{
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(rgba(0,0,0,0.5),#1c1ea700);
+    text-align: center;
+    position: fixed;
+    right: 30px;
+    top: 20px;
+    border-radius: 3px;
+    z-index: 3;
+    cursor: pointer;
+
+}
+
+#menuBtn img{
+    width: 20px;
+    margin-top: 15px;
+}
+
+@media screen and (max-width: 770px){
+    .banner-text h1{
+        font-size: 44px;
+
+    }
+    .banner-btn a{
+        display: block;
+        margin: 20px auto;
+    }
+}
+
+/* feature======================
+=============================== */
+
+#projects,#services{
+   width: 100%;
+   padding: 70px 0;
+
+}
+
+#projects .title-text, #services .title-text{
+    text-align: center;
+    padding-bottom: 20px;
+
+}
+
+#projects .title-text p, #services .title-text p{
+    margin: auto;
+    font-size: 31px;
+    color: linear-gradient(rgba(0,0,0,0.5),#1c1ea77c);
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    display: inline-block; 
+}
+/* 
+#projects .title-text p::after{
+    content: '';
+    width: 70px;
+    height: 48px;
+    /* background: linear-gradient(rgba(0,0,0,0.5),#1c1ea77c); */
+    /* background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: -15px;
+    left: 0;
+    z-index: -1;
+    transform:  rotate(-5deg);
+    border-top-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+} */ */
+
+
+
+
+/* projects ///////////////////
+//////////////////////////////////// */
+
+#projects{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: #555;
+}
+
+#projects h1{
+    text-align: center;
+    color:  #555 !important;
+    padding-bottom: 10px;
+}
+
+#projects h1::after{
+    content: '';
+    background: #007bff;
+    display: block;
+    height: 3px;
+    width: 170px;
+    margin: 20px auto 5px;
+}
+
+.profile-pic{
+    margin-top: 25px;
+    
+}
+
+.profile-pic .img-box{
+    opacity: 1;
+    display: block;
+    position: relative;
+
+
+
+    
+}
+
+.profile-pic .img-box img{
+    border-radius: 10px 10px 0 0;
+    width: 95%;
+    height: 286px;
+    
+}
+
+
+
+
+
+.profile-pic h3{
+    font-size: 15px;
+    font-weight: bold;
+
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 770px) {
+
+     .profile-pic{
+         width: 100%;
+     }
+
+    
+
+}
+
+#projects .profile-text{
+    /* background: #18caa9; */
+    width: 95%;
+    margin: auto;
+    padding: 3px 0;
+}
+
+
+/* proeject end/////////////////////
+/////////////////////////////// */
+
+
+/* profile start //////////////////////////////////
+//////////////////////////////////////////////// */
+ 
+
+
+
+/* profile end//////////////////////////////////
+/////////////////////////////////// */

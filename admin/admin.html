@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farhan Administration</title>
+
+    <link href="../assets0/images/favicon.jpeg" rel="icon">
+    <link href="../assets0/images/favicon.jpeg" rel="apple-touch-icon">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?
+    family=Kaushan+script|Popins&display=swap">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+	
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+<body>
+    
+    <header id="banner">
+<img src="../assets0/images/logo.png" class="logo" alt="logo">
+
+    </header>
+
+    <div id="sideNav">
+        <nav>
+        <ul>
+            <li><a href="admin.html">Home</a></li>
+            <li><a href="">Profile</a></li>
+            <li><a href="">Add Project</a></li>
+            <li><a href="">Add Service</a></li>
+            <li><a href="">Content</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="">Logout</a></li>
+
+
+        </ul>
+    </nav>
+    </div>
+
+    <div id="menuBtn">
+        <img src="../assets0/images/menu.png" alt="menu" id="menu">
+
+    </div>
+<style>
+    .services{
+    font-weight: 400;
+    line-height: 1.5;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid #666;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    transition: color .15s
+    }
+</style>
+    <section id="projects">
+        <div class="title-text">
+           <p>Completed Projects</p>
+        </div>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-3 profile-pic text-center">
+                    <div class="img-box">
+                        <img src="../assets0/images/ceo.jpeg" class="img-responsive" alt="">
+                    </div>
+                    <div class="profile-text">
+                        <h3>Peshawar/ <span style="color: #6D85EB">Project Name</span> </h3>
+                        <p>
+                          <button class="services">Construction</button>  <a href="project_edit.html" class="btn btn-success">Edit</a> <a href="" class="btn btn-danger">Remove</a></p>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-3 profile-pic text-center">
+                    <div class="img-box">
+                        <img src="../assets0/images/ceo.jpeg" class="img-responsive" alt="">
+                    </div>
+                    <div class="profile-text">
+                        <h3>Lahore/ <span style="color: #6D85EB">Project Name</span> </h3>
+                        <p>
+                          <button class="services">General Supplier</button>  <a href="project_edit.html" class="btn btn-success">Edit</a> <a href="" class="btn btn-danger">Remove</a></p>
+                    </div>
+                </div>
+
+
+                <div class="col-md-3 profile-pic text-center">
+                    <div class="img-box">
+                        <img src="../assets0/images/ceo.jpeg" class="img-responsive" alt="">
+                    </div>
+                    <div class="profile-text">
+                        <h3>Chitral/ <span style="color: #6D85EB">Project Name</span> </h3>
+                        <p>
+                          <button class="services">Construction</button>  <a href="project_edit.html" class="btn btn-success">Edit</a> <a href="" class="btn btn-danger">Remove</a></p>
+                    </div>
+                </div>
+
+
+                <div class="col-md-3 profile-pic text-center">
+                    <div class="img-box">
+                        <img src="../assets0/images/ceo.jpeg" class="img-responsive" alt="">
+                    </div>
+                    <div class="profile-text">
+                        <h3>Peshawar/ <span style="color: #6D85EB">Project Name</span> </h3>
+                        <p>
+                          <button class="services">General Supplier</button>  <a href="project_edit.html" class="btn btn-success">Edit</a> <a href="" class="btn btn-danger">Remove</a></p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </section>
+
+    <section id="services">
+        <div class="title-text">
+           <p>Our Services</p>
+        </div>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-3 profile-pic text-center">
+                    <div class="img-box">
+                        <img src="../assets0/images/ceo.jpeg" class="img-responsive" alt="">
+                    </div>
+                    <div class="profile-text">
+                        <h3>Project 1 / <span style="color: #6D85EB">Construction</span> </h3>
+                        <p><a href="" class="btn btn-success">Edit</a> <a href="" class="btn btn-danger">Remove</a></p>
+                    </div>
+                </div>
+
+
+
+
+
+
+ 
+
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        var menuBtn = document.getElementById("menuBtn");
+        var sideNav = document.getElementById("sideNav");
+        var menu = document.getElementById("menu");
+
+        sideNav.style.right = "-250px";
+        menuBtn.onclick = function(){
+            if(sideNav.style.right == "-250px"){
+                sideNav.style.right = "0";
+                menu.src= "../assets0/images/close.png";
+            }
+            else{
+                sideNav.style.right = "-250px";
+                menu.src= "../assets0/images/menu.png";
+
+            }
+        }
+
+    </script>
+
+
+
+</body>
+</html>

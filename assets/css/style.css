@@ -681,7 +681,7 @@ a:hover {
 }
 @media (min-width: 768px) {
   .hero .hero-title {
-    font-size: 3.5rem;
+    font-size: 4.5rem;
   }
 }
 .hero .hero-subtitle {
@@ -690,12 +690,6 @@ a:hover {
 }
 @media (min-width: 768px) {
   .hero .hero-subtitle {
-    font-size: 2.5rem;
-  }
-}
-
-@media (max-width: 550px) {
-  .hero .hero-title {
     font-size: 2.5rem;
   }
 }
