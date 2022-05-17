@@ -93,7 +93,7 @@
                     
                     <div class="col-md-6">
                       <label for="city" class="form-label">City Name</label>
-                      <input type="text" class="form-control" id="city" value="Peshawar">
+                      <input type="text" class="form-control" id="city" >
                     </div>
                     <div class="col-md-4">
                         <label for="inputState" class="form-label">Service</label>
@@ -106,13 +106,14 @@
                       </div>
                     <div class="col-12">
                       <label for="name" class="form-label">Project Name</label>
-                      <input type="text" class="form-control" id="name" value="Project Name">
+                      <input type="text" class="form-control" id="name" >
                     </div>
 
                     <div class="col-sm-2 col-md-3" >
                         <div class="filled" id='profile-upload'>
                             <div class="form-group" id="picture-section">
-                                <img class="hvr-profile-img" id="output1" src="../assets0/images/ceo.jpeg"> <br>
+                                <label for="">Upload Photo</label>
+                                <img class="hvr-profile-img" id="output1" src="assets/images/placeholder.png"> <br>
                                 <label for="getval" id="picture-icon"><i class="fas fa-plus"></i></label>
                                 <input type="file" name="picture" id='getval' accept="image/*" onchange="loadFile(event)"  class="upload w180" title="Dimensions 180 X 180" id="imag" required>
 

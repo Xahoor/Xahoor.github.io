@@ -21,7 +21,7 @@
 <body>
     
     <header id="banner">
-<img src="../assets0/images/logo.png" class="logo" alt="logo">
+<img src="../assets0/images/logo.png"  class="logo" alt="logo">
 
     </header>
 
@@ -29,12 +29,12 @@
         <nav>
         <ul>
             <li><a href="admin.html">Home</a></li>
-            <li><a href="">Profile</a></li>
-            <li><a href="">Add Project</a></li>
-            <li><a href="">Add Service</a></li>
-            <li><a href="">Content</a></li>
-            <li><a href="">Contact</a></li>
-            <li><a href="">Logout</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="project.html">Add Project</a></li>
+            <li><a href="service.html">Add Service</a></li>
+            <li><a href="content.html">Content</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Logout</a></li>
 
 
         </ul>
@@ -80,7 +80,8 @@
                     <div class="profile-text">
                         <h3>Peshawar/ <span style="color: #6D85EB">Project Name</span> </h3>
                         <p>
-                          <button class="services">Construction</button>  <a href="project_edit.html" class="btn btn-success">Edit</a> <a href="" class="btn btn-danger">Remove</a></p>
+                          <button class="services">Construction</button>  <a href="project_edit.html" class="btn btn-success">Edit</a>
+                           <a href="" onclick="alert('Are you sure to delete this?')" class="btn btn-danger">Remove</a></p>
                     </div>
                 </div>
 
@@ -93,7 +94,9 @@
                     <div class="profile-text">
                         <h3>Lahore/ <span style="color: #6D85EB">Project Name</span> </h3>
                         <p>
-                          <button class="services">General Supplier</button>  <a href="project_edit.html" class="btn btn-success">Edit</a> <a href="" class="btn btn-danger">Remove</a></p>
+                          <button class="services">General Supplier</button>  <a href="project_edit.html" class="btn btn-success">Edit</a> 
+                          <a href="" onclick="alert('Are you sure to delete this?')" class="btn btn-danger">Remove</a></p>
+
                     </div>
                 </div>
 
@@ -105,7 +108,9 @@
                     <div class="profile-text">
                         <h3>Chitral/ <span style="color: #6D85EB">Project Name</span> </h3>
                         <p>
-                          <button class="services">Construction</button>  <a href="project_edit.html" class="btn btn-success">Edit</a> <a href="" class="btn btn-danger">Remove</a></p>
+                          <button class="services">Construction</button>  <a href="project_edit.html" class="btn btn-success">Edit</a>
+                          <a href="" onclick="alert('Are you sure to delete this?')" class="btn btn-danger">Remove</a></p>
+
                     </div>
                 </div>
 
@@ -117,7 +122,9 @@
                     <div class="profile-text">
                         <h3>Peshawar/ <span style="color: #6D85EB">Project Name</span> </h3>
                         <p>
-                          <button class="services">General Supplier</button>  <a href="project_edit.html" class="btn btn-success">Edit</a> <a href="" class="btn btn-danger">Remove</a></p>
+                          <button class="services">General Supplier</button>  <a href="project_edit.html" class="btn btn-success">Edit</a>
+                          <a href="" onclick="alert('Are you sure to delete this?')" class="btn btn-danger">Remove</a></p>
+
                     </div>
                 </div>
 
@@ -133,29 +140,28 @@
         </div>
 
         <div class="container">
-            <div class="row">
-
-                <div class="col-md-3 profile-pic text-center">
-                    <div class="img-box">
-                        <img src="../assets0/images/ceo.jpeg" class="img-responsive" alt="">
-                    </div>
+            <div class="row justify-content-center">
+                <div class="col-6 col-md-3 profile-pic text-center">
                     <div class="profile-text">
-                        <h3>Project 1 / <span style="color: #6D85EB">Construction</span> </h3>
-                        <p><a href="" class="btn btn-success">Edit</a> <a href="" class="btn btn-danger">Remove</a></p>
+                        <h3><span>Construction</span> </h3>
+                        <p><a href="service_edit.html" class="btn btn-primary">Edit</a> 
+                            <a href="" onclick="alert('Are you sure to delete this?')" class="btn btn-danger">Remove</a></p>
                     </div>
                 </div>
 
+                <div class="col-6 col-md-3 profile-pic text-center">
+                    <div class="profile-text">
+                        <h3><span>General Supplier</span> </h3>
+                        <p><a href="" class="btn btn-primary">Edit</a> 
+                            <a href="" onclick="alert('Are you sure to delete this?')" class="btn btn-danger">Remove</a></p>
 
-
-
-
-
- 
+                    </div>
+                </div>
 
             </div>
         </div>
 
-    </section>
+    </section> <br>
 
     <script>
         var menuBtn = document.getElementById("menuBtn");

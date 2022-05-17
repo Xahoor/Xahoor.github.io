@@ -745,6 +745,9 @@ a:hover {
 .about-mf .about-img img {
   margin-left: 10px;
 }
+#about .profile-img{
+  height: 400px;
+}
 @media (min-width: 767px) {
   .about-mf .box-pl2 {
     margin-top: 3rem;
@@ -778,17 +781,19 @@ a:hover {
   padding: 2.5rem 1.3rem;
   border-radius: 1rem;
   margin-bottom: 3rem;
-  text-align: center;
 }
 .service-box:hover .ico-circle {
   transition: all 500ms ease;
   color: #fff;
   background-color: #0078ff;
   box-shadow: 0 0 0 10px #cde1f8;
+  
 }
 .service-box .service-ico {
   margin-bottom: 1rem;
   color: #1e1e1e;
+  text-align: center;
+
 }
 .service-box .ico-circle {
   transition: all 500ms ease;
@@ -1432,4 +1437,48 @@ footer .credits a {
 
 .contact .btn .fas{
   margin-right: 10px;
+}
+
+
+/* text with screen //////////////////
+///////////////////////////////// */
+@media (max-width: 540px){
+
+
+}
+
+
+@media (max-width: 540px) {
+
+  #about  .about-screen{
+    text-align: center;
+  }
+  #about .profile-img{
+    height: 200px;
+  }
+
+
+  #services h3{
+    font-size: 2rem;
+  }
+
+  #services h2{
+    font-size: .9rem;
+  }
+
+  #services .s-description{
+    font-size: 0.8rem;
+    text-align: left;
+    justify-content: left;
+
+  } 
+
+  .service-box {
+    background-color: #fff;
+    padding: 1.5rem 0.7rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  
 }

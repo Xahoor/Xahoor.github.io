@@ -36,7 +36,6 @@
             <li><a href="content.html">Content</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="login.html">Logout</a></li>
-
         </ul>
     </nav>
     </div>
@@ -91,27 +90,33 @@
                 <!--  -->
                 <form class="row g-3">
                     
-                    <div class="col-md-6">
-                      <label for="city" class="form-label">City Name</label>
-                      <input type="text" class="form-control" id="city" value="Peshawar">
+                    <div class="col-md-12">
+                      <label for="slogan1" class="form-label">Text 1</label>
+                      <input type="text" class="form-control" id="slogan1" value="Pakistan's Most Trusted Group Of Company">
                     </div>
-                    <div class="col-md-4">
-                        <label for="inputState" class="form-label">Service</label>
-                        <select id="inputState" class="form-select">
-                          <option >Choose service</option>
-                          <option selected>Construction</option>
-                          <option>General Supplier</option>
 
-                        </select>
+                    <div class="col-md-6">
+                        <label for="slogan2" class="form-label">Email or User Name</label>
+                        <input type="text" class="form-control" id="slogan2" value="We Build Powerful m">
                       </div>
-                    <div class="col-12">
-                      <label for="name" class="form-label">Project Name</label>
-                      <input type="text" class="form-control" id="name" value="Project Name">
-                    </div>
+  
+                      <div class="col-md-6">
+                          <label for="slogan3" class="form-label">Password</label>
+                          <input type="text" class="form-control" id="slogan3" value="Solutions, Experiences">
+                        </div>
+                  
+                      <div class="col-12">
+                        <label for="description" class="form-label">Message From CEO</label>
+                        <textarea class="form-control" id="description" value="" rows="3"> Farhan Niaz Group Of Company is a privately held business alliance in Pakistan. We strive to uphold the values of trust and honesty that have long been associated with our brand. Our services prominence in market is a result of transforming traditional business practices to impart modern strategies that cater to the constantly changing needs of our clients. If you have any queries about our service, our pricing, or our support, or if you would like some general advice on using text messaging within your organisation, then please do call us, email us.
+
+
+                        </textarea>
+                      </div>
 
                     <div class="col-sm-2 col-md-3" >
                         <div class="filled" id='profile-upload'>
                             <div class="form-group" id="picture-section">
+                                <label for="output1">Upload Logo</label>
                                 <img class="hvr-profile-img" id="output1" src="../assets0/images/ceo.jpeg"> <br>
                                 <label for="getval" id="picture-icon"><i class="fas fa-plus"></i></label>
                                 <input type="file" name="picture" id='getval' accept="image/*" onchange="loadFile(event)"  class="upload w180" title="Dimensions 180 X 180" id="imag" required>
