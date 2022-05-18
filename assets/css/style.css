@@ -846,6 +846,7 @@ a:hover {
 }
 
 .work-img {
+  height: 200px;
   display: block;
   overflow: hidden;
 }
