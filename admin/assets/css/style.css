@@ -181,9 +181,6 @@ nav ul li a{
     opacity: 1;
     display: block;
     position: relative;
-
-
-
     
 }
 
@@ -194,29 +191,17 @@ nav ul li a{
     
 }
 
-
-
-
-
 .profile-pic h3{
     font-size: 15px;
     font-weight: bold;
 
 }
 
-
-
-
-
-
-
 @media screen and (max-width: 770px) {
 
      .profile-pic{
          width: 100%;
      }
-
-    
 
 }
 
@@ -225,6 +210,68 @@ nav ul li a{
     width: 95%;
     margin: auto;
     padding: 3px 0;
+    
+}
+@media (min-width: 541px) {
+    #projects .profile-text i{
+        display: none;
+    }
+
+    #projects .profile-text .show-text{
+        display: block;
+    }
+}
+@media (max-width: 540px) {
+
+    #projects .title-text p{
+        font-size: 1.5rem;
+
+    }
+
+    .profile-pic {
+        width: 47%;
+    }
+
+    .profile-pic .img-box img{
+        height: 150px;
+    }
+
+    #projects .profile-text{
+        text-align: left;
+    }
+
+    #projects .profile-text h3{
+        font-size: 0.9rem;
+    }
+
+    #projects .profile-text p button, #projects .profile-text p a{
+        font-size: 0.8rem;
+        margin-top: 5px;
+        padding: 5px;
+    }
+
+    #projects .profile-text i{
+        display: block;
+        font-size: 10px;
+    }
+
+    #projects .profile-text .show-text{
+        display: none;
+    }
+
+    #services .title-text p{
+        font-size: 1.5rem;
+
+    }
+
+    #services .profile-text h3{
+        font-size: 1.2rem;
+    }
+
+    #services .profile-text p a{ 
+        font-size: 0.8rem;
+    }
+
 }
 
 
