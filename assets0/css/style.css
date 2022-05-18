@@ -1452,9 +1452,11 @@ footer .credits a {
     padding-bottom: 5px;
 
   }
+
   #about  .about-screen{
     text-align: center;
   }
+  
   #about .profile-img{
     height: 200px;
   }
@@ -1532,7 +1534,6 @@ footer .credits a {
     padding-bottom: 5px;
 
   }
-  
 
   #footer p, #footer .credits{
     font-size: 1rem;
