@@ -662,6 +662,7 @@ a:hover {
 }
 .hero .hero-content {
   text-align: center;
+  top: 35%;
   position: absolute;
 }
 .hero .overlay-itro {
@@ -677,15 +678,15 @@ a:hover {
 .hero .hero-title {
   color: #fff;
   font-weight: 600;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 @media (min-width: 768px) {
   .hero .hero-title {
-    font-size: 4.5rem;
+    font-size: 3.5rem;
   }
 }
 .hero .hero-subtitle {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 600;
 }
 @media (min-width: 768px) {
