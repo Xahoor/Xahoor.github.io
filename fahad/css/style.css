@@ -1,0 +1,193 @@
+/* 
+   Swat Women Rise Initiative - Custom Styles
+   Color Scheme:
+   Primary: Deep Teal #0F766E
+   Secondary: Emerald Green #10B981
+   Accent: Golden Yellow #F59E0B
+   Background: Off White #F8FAFC
+   Cards: White #FFFFFF
+   Heading: Dark Navy #1E293B
+   Text: Slate Gray #475569
+   Border: Light Gray #E2E8F0
+*/
+
+:root {
+    --primary-color: #0F766E;
+    --secondary-color: #10B981;
+    --accent-color: #F59E0B;
+    --bg-color: #F8FAFC;
+    --card-bg: #FFFFFF;
+    --heading-color: #1E293B;
+    --text-color: #475569;
+    --border-color: #E2E8F0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+    font-weight: 700;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #0d635c;
+    border-color: #0d635c;
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: var(--primary-color) !important;
+}
+
+.nav-link {
+    color: #333 !important;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.nav-link:hover, .nav-link.active {
+    color:  #2563EB  !important;
+}
+
+/* .hero-section {
+    background: linear-gradient(rgba(15, 118, 110, 0.8), rgba(15, 118, 110, 0.8)), url('../assets/img/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+} */
+
+
+.hero-section {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: white;
+}
+
+/* Background Image */
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* Dark Overlay */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(118, 27, 15, 0.75);
+    z-index: -1;
+}
+
+/* Hero Content */
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Make all text white */
+.hero-content h1,
+.hero-content p {
+    color: #fff;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+.card {
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.footer {
+    background-color: var(--heading-color);
+    color: #cbd5e1;
+    padding: 60px 0 20px;
+}
+
+.footer h5 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--secondary-color);
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(16, 185, 129, 0.1);
+    color: var(--secondary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
