@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWRI Admin</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <style>
+
+.account-card{
+
+border-radius:12px;
+
+}
+
+
+#updateAccount{
+
+border-radius:8px;
+
+}
+
+
+.password-strength{
+
+font-size:14px;
+margin-top:5px;
+
+}
+
+    </style>
+
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="admin-wrapper">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-header">
+            <h4>SWRI Admin</h4>
+
+            <button class="btn-close d-lg-none" id="closeSidebar"></button>
+        </div>
+
+        <ul class="sidebar-menu">
+
+            <li>
+                <a href="dashboard.html">
+                    <i class="fas fa-house"></i>
+                    Home Page
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html">
+                    <i class="fas fa-circle-info"></i>
+                    About Us
+                </a>
+            </li>
+
+            <li>
+                <a href="programs.html">
+                    <i class="fas fa-book-open"></i>
+                    Programs
+                </a>
+            </li>
+
+            <li>
+                <a href="leadership.html">
+                    <i class="fas fa-users"></i>
+                    Leadership
+                </a>
+            </li>
+
+            <li>
+                <a href="news.html">
+                    <i class="fas fa-newspaper"></i>
+                    News & Events
+                </a>
+            </li>
+            
+            <li>
+                <a href="get-involved.html">
+                    <i class="fas fa-handshake"></i>
+                    Contributors
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    <i class="fas fa-envelope"></i>
+                    Contact
+                </a>
+            </li>
+
+            <li>
+                <a href="Setting.html">
+                    <i class="fas fa-cog"></i>
+                    Setting
+                </a>
+            </li>
+
+            <li>
+                <a href="Logout.html">
+                    <i class="fas fa-sign-out"></i>
+                    Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Overlay -->
+    <div class="sidebar-overlay" id="overlay"></div>
+
+    <!-- Main -->
+
+<!-- Main Content -->
+
+<div class="main-content">
+
+
+    <nav class="navbar bg-white shadow-sm px-3">
+
+        <button class="btn btn-light d-lg-none" id="openSidebar">
+            <i class="fas fa-bars"></i>
+        </button>
+
+
+        <h5 class="ms-2 mb-0">
+            Account Settings
+        </h5>
+
+    </nav>
+
+
+
+    <div class="p-4">
+
+
+        <div class="container-fluid">
+
+
+            <!-- Admin Account Settings -->
+
+            <div class="card shadow-sm mb-4">
+
+
+                <div class="card-header">
+                    Admin Account Settings
+                </div>
+
+
+
+                <div class="card-body">
+
+
+                    <div class="row">
+
+
+                        <div class="col-lg-6">
+
+
+                            <label class="form-label">
+                                Username
+                            </label>
+
+
+                            <input type="text"
+                            class="form-control mb-3"
+                            id="adminUsername"
+                            value="admin">
+
+
+                        </div>
+
+
+
+                        <div class="col-lg-6">
+
+
+                            <label class="form-label">
+                                Current Password
+                            </label>
+
+
+                            <input type="password"
+                            class="form-control mb-3"
+                            id="currentPassword"
+                            placeholder="Enter current password">
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+                    <div class="row">
+
+
+                        <div class="col-lg-6">
+
+
+                            <label class="form-label">
+                                New Password
+                            </label>
+
+
+                            <input type="password"
+                            class="form-control mb-3"
+                            id="newPassword"
+                            placeholder="Enter new password">
+
+
+                        </div>
+
+
+
+
+
+                        <div class="col-lg-6">
+
+
+                            <label class="form-label">
+                                Confirm New Password
+                            </label>
+
+
+                            <input type="password"
+                            class="form-control mb-3"
+                            id="confirmPassword"
+                            placeholder="Confirm new password">
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+                    <div class="text-end">
+
+
+                        <button class="btn btn-primary"
+                        id="updateAccount">
+
+
+                            <i class="fas fa-user-lock me-2"></i>
+
+                            Update Account
+
+
+                        </button>
+
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+<script src="assets/js/main.js"></script>
+
+
+</body>
+</html>

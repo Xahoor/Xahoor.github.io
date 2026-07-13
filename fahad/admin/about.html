@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWRI Admin</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <style>
+
+body{
+    background:#f4f6f9;
+    font-family:Segoe UI,sans-serif;
+}
+
+.card{
+    border:none;
+    border-radius:12px;
+}
+
+.card-header{
+    background:#fff;
+    font-weight:600;
+    font-size:18px;
+}
+
+.form-control{
+    border-radius:8px;
+}
+
+textarea{
+    resize:none;
+}
+
+#storyPreview{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border:1px solid #ddd;
+}
+
+.btn-success{
+    border-radius:8px;
+}
+
+.table td,
+.table th{
+    vertical-align:middle;
+}
+
+
+    </style>
+
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="admin-wrapper">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-header">
+            <h4>SWRI Admin</h4>
+
+            <button class="btn-close d-lg-none" id="closeSidebar"></button>
+        </div>
+
+        <ul class="sidebar-menu">
+
+            <li>
+                <a href="dashboard.html">
+                    <i class="fas fa-house"></i>
+                    Home Page
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html">
+                    <i class="fas fa-circle-info"></i>
+                    About Us
+                </a>
+            </li>
+
+            <li>
+                <a href="programs.html">
+                    <i class="fas fa-book-open"></i>
+                    Programs
+                </a>
+            </li>
+
+            <li>
+                <a href="leadership.html">
+                    <i class="fas fa-users"></i>
+                    Leadership
+                </a>
+            </li>
+
+            <li>
+                <a href="news.html">
+                    <i class="fas fa-newspaper"></i>
+                    News & Events
+                </a>
+            </li>
+            
+            <li>
+                <a href="get-involved.html">
+                    <i class="fas fa-handshake"></i>
+                    Contributors
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    <i class="fas fa-envelope"></i>
+                    Contact
+                </a>
+            </li>
+
+            <li>
+                <a href="Setting.html">
+                    <i class="fas fa-cog"></i>
+                    Setting
+                </a>
+            </li>
+
+            <li>
+                <a href="Logout.html">
+                    <i class="fas fa-sign-out"></i>
+                    Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Overlay -->
+    <div class="sidebar-overlay" id="overlay"></div>
+
+    <!-- Main -->
+    <!-- Main Content -->
+<div class="main-content">
+
+    <!-- Top Navbar -->
+    <nav class="navbar bg-white shadow-sm px-3">
+        <button class="btn btn-light d-lg-none" id="openSidebar">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <h5 class="ms-2 mb-0">About Page Management</h5>
+    </nav>
+
+    <div class="p-4">
+
+        <div class="container-fluid">
+
+            <!-- Save Button -->
+            <div class="d-flex mb-4">
+                <button class="btn btn-success ms-auto px-4">
+                    <i class="fas fa-save me-2"></i>
+                    Save About Page
+                </button>
+            </div>
+
+            <!-- ========================= -->
+            <!-- PAGE HEADER -->
+            <!-- ========================= -->
+
+            <div class="card shadow-sm mb-4">
+
+                <div class="card-header">
+                    Page Header
+                </div>
+
+                <div class="card-body">
+
+                    <label class="form-label">Page Title</label>
+                    <input type="text" class="form-control mb-3" placeholder="About Us">
+
+                    <label class="form-label">Subtitle</label>
+                    <textarea class="form-control" rows="3"
+                        placeholder="Learn about our journey..."></textarea>
+
+                </div>
+
+            </div>
+
+            <!-- ========================= -->
+            <!-- OUR STORY -->
+            <!-- ========================= -->
+
+            <div class="card shadow-sm mb-4">
+
+                <div class="card-header">
+                    Our Story
+                </div>
+
+                <div class="card-body">
+
+                    <div class="row">
+
+                        <div class="col-lg-8">
+
+                            <label class="form-label">Heading</label>
+                            <input type="text" class="form-control mb-3">
+
+                            <label class="form-label">Paragraph 1</label>
+                            <textarea class="form-control mb-3" rows="5"></textarea>
+
+                            <label class="form-label">Paragraph 2</label>
+                            <textarea class="form-control" rows="5"></textarea>
+
+                        </div>
+
+                        <div class="col-lg-4">
+
+                            <label class="form-label">Story Image</label>
+
+                            <img src="https://via.placeholder.com/400x250"
+                                class="img-fluid rounded shadow mb-3"
+                                id="storyPreview">
+
+                            <input type="file"
+                                class="form-control"
+                                id="storyImage">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ========================= -->
+            <!-- VISION & MISSION -->
+            <!-- ========================= -->
+
+            <div class="row">
+
+                <div class="col-lg-6">
+
+                    <div class="card shadow-sm mb-4">
+
+                        <div class="card-header">
+                            Vision
+                        </div>
+
+                        <div class="card-body">
+
+                            <label class="form-label">Title</label>
+                            <input type="text" class="form-control mb-3">
+
+                            <label class="form-label">Description</label>
+                            <textarea class="form-control" rows="7"></textarea>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6">
+
+                    <div class="card shadow-sm mb-4">
+
+                        <div class="card-header">
+                            Mission
+                        </div>
+
+                        <div class="card-body">
+
+                            <label class="form-label">Title</label>
+                            <input type="text" class="form-control mb-3">
+
+                            <label class="form-label">Description</label>
+                            <textarea class="form-control" rows="7"></textarea>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ========================= -->
+            <!-- OBJECTIVES -->
+            <!-- ========================= -->
+
+            <div class="card shadow-sm mb-4">
+
+                <div class="card-header d-flex justify-content-between align-items-center">
+
+                    <span>Objectives</span>
+
+                    <button class="btn btn-primary btn-sm" id="addObjective">
+                        <i class="fas fa-plus"></i>
+                        Add Objective
+                    </button>
+
+                </div>
+
+                <div class="card-body">
+
+                    <table class="table table-bordered align-middle">
+
+                        <thead>
+
+                            <tr>
+
+                                <th width="220">Title</th>
+                                <th>Description</th>
+                                <th width="120">Action</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="objectiveTable">
+
+                            <tr>
+
+                                
+
+                                <td>
+                                    <input class="form-control"
+                                        placeholder="Title">
+                                </td>
+
+                                <td>
+                                    <input class="form-control"
+                                        placeholder="Description">
+                                </td>
+
+                                <td>
+
+                                    <button class="btn btn-danger btn-sm deleteObjective">
+                                        Delete
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+         <!-- add objective modal -->
+            <!-- Add Objective Modal -->
+                <div class="modal fade" id="objectiveModal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <h5 class="modal-title">Add Objective</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <div class="modal-body">
+
+                                <div class="mb-3">
+                                    <label class="form-label">Title</label>
+                                    <input type="text" id="objectiveTitle" class="form-control" placeholder="Enter title">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Description</label>
+                                    <textarea id="objectiveDescription" class="form-control" rows="4" placeholder="Enter description"></textarea>
+                                </div>
+
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    Cancel
+                                </button>
+                                <button type="button" class="btn btn-primary" id="saveObjective">
+                                    Save
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+         <!-- add objective modal end -->
+
+            <!-- ========================= -->
+            <!-- REGISTERED OFFICE -->
+            <!-- ========================= -->
+
+            <div class="card shadow-sm mb-4">
+
+                <div class="card-header">
+                    Registered Office
+                </div>
+
+                <div class="card-body">
+
+                    <input class="form-control mb-3"
+                        placeholder="Heading">
+
+                    <input class="form-control mb-3"
+                        placeholder="Office Name">
+
+                    <input class="form-control mb-3"
+                        placeholder="Floor">
+
+                    <input class="form-control mb-3"
+                        placeholder="Nearby Location">
+
+                    <input class="form-control mb-3"
+                        placeholder="Road">
+
+                    <input class="form-control"
+                        placeholder="City">
+
+                </div>
+
+            </div>
+
+            <!-- ========================= -->
+            <!-- FOOTER -->
+            <!-- ========================= -->
+
+            
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- Content -->
+
+
+
+
+
+<script src="assets/js/main.js"></script>
+
+<script>
+    // Hero Image Preview
+
+document.getElementById("storyImage").addEventListener("change",function(e){
+
+const reader=new FileReader();
+
+reader.onload=function(){
+
+document.getElementById("storyPreview").src=reader.result;
+
+}
+
+reader.readAsDataURL(e.target.files[0]);
+
+});
+
+
+// Open Modal
+document.getElementById("addObjective").addEventListener("click", function () {
+    document.getElementById("objectiveTitle").value = "";
+    document.getElementById("objectiveDescription").value = "";
+
+    const modal = new bootstrap.Modal(document.getElementById("objectiveModal"));
+    modal.show();
+});
+
+// Save Objective
+document.getElementById("saveObjective").addEventListener("click", function () {
+
+    let title = document.getElementById("objectiveTitle").value.trim();
+    let description = document.getElementById("objectiveDescription").value.trim();
+
+    if (title === "" || description === "") {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    let row = `
+        <tr>
+            <td>${title}</td>
+            <td>${description}</td>
+            <td>
+                <button class="btn btn-danger btn-sm deleteObjective">
+                    Delete
+                </button>
+            </td>
+        </tr>
+    `;
+
+    document.getElementById("objectiveTable").insertAdjacentHTML("beforeend", row);
+
+    bootstrap.Modal.getInstance(document.getElementById("objectiveModal")).hide();
+});
+
+// Delete Row
+document.getElementById("objectiveTable").addEventListener("click", function (e) {
+    if (e.target.classList.contains("deleteObjective")) {
+        e.target.closest("tr").remove();
+    }
+});
+
+</script>
+
+</body>
+</html>

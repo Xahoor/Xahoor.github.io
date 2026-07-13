@@ -1,26 +1,4 @@
-/* 
-   Swat Women Rise Initiative - Custom Styles
-   Color Scheme:
-   Primary: Deep Teal #0F766E
-   Secondary: Emerald Green #10B981
-   Accent: Golden Yellow #F59E0B
-   Background: Off White #F8FAFC
-   Cards: White #FFFFFF
-   Heading: Dark Navy #1E293B
-   Text: Slate Gray #475569
-   Border: Light Gray #E2E8F0
-*/
-/* 
-:root {
-    --primary-color: #7B2D3E;
-    --secondary-color: #1B4B5A ;
-    --accent-color: #E8A33D ;
-    --bg-color: #FBF7F1 ;
-    --card-bg: #FFFFFF;
-    --heading-color: #2B2420 ;
-    --text-color: #475569;
-    --border-color: #E2E8F0;
-} */
+
 
 :root {
     --primary-color: #C99700;     
@@ -97,6 +75,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-link:hover, .nav-link.active {
     color:   #FBBF24 !important;
+}
+
+   .navbar-toggler {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 /* .hero-section {

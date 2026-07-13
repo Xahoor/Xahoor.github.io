@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWRI Admin</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <style>
+
+/* Get Involved Admin */
+
+
+.card{
+
+border-radius:12px;
+
+}
+
+
+.card-header{
+
+background:#fff;
+font-weight:600;
+font-size:18px;
+
+}
+
+
+.form-control,
+.form-select{
+
+border-radius:8px;
+
+}
+
+
+textarea{
+
+resize:none;
+
+}
+
+
+
+.table td,
+.table th{
+
+vertical-align:middle;
+
+}
+
+
+
+.table td:nth-child(6){
+
+max-width:150px;
+
+}
+
+
+
+.viewMessage{
+
+border-radius:8px;
+
+}
+
+
+.deleteRow{
+
+border-radius:8px;
+
+}
+
+
+
+.btn-success{
+
+border-radius:8px;
+
+}
+
+    </style>
+
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="admin-wrapper">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-header">
+            <h4>SWRI Admin</h4>
+
+            <button class="btn-close d-lg-none" id="closeSidebar"></button>
+        </div>
+
+        <ul class="sidebar-menu">
+
+            <li>
+                <a href="dashboard.html">
+                    <i class="fas fa-house"></i>
+                    Home Page
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html">
+                    <i class="fas fa-circle-info"></i>
+                    About Us
+                </a>
+            </li>
+
+            <li>
+                <a href="programs.html">
+                    <i class="fas fa-book-open"></i>
+                    Programs
+                </a>
+            </li>
+
+            <li>
+                <a href="leadership.html">
+                    <i class="fas fa-users"></i>
+                    Leadership
+                </a>
+            </li>
+
+            <li>
+                <a href="news.html">
+                    <i class="fas fa-newspaper"></i>
+                    News & Events
+                </a>
+            </li>
+            
+            <li>
+                <a href="get-involved.html">
+                    <i class="fas fa-handshake"></i>
+                    Contributors
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    <i class="fas fa-envelope"></i>
+                    Contact
+                </a>
+            </li>
+
+            <li>
+                <a href="Setting.html">
+                    <i class="fas fa-cog"></i>
+                    Setting
+                </a>
+            </li>
+
+            <li>
+                <a href="Logout.html">
+                    <i class="fas fa-sign-out"></i>
+                    Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Overlay -->
+    <div class="sidebar-overlay" id="overlay"></div>
+
+
+    <!-- Main Content -->
+
+  
+
+            <div class="main-content">
+
+
+            <nav class="navbar bg-white shadow-sm px-3">
+
+            <button class="btn btn-light d-lg-none" id="openSidebar">
+            <i class="fas fa-bars"></i>
+            </button>
+
+
+            <h5 class="ms-2 mb-0">
+            Get Involved Management
+            </h5>
+
+
+            </nav>
+
+
+
+
+            <div class="p-4">
+
+
+            <div class="container-fluid">
+
+
+
+            <!-- Save -->
+
+            <div class="d-flex mb-4">
+
+            <button class="btn btn-success ms-auto px-4">
+
+            <i class="fas fa-save me-2"></i>
+            Save Changes
+
+            </button>
+
+            </div>
+
+
+
+
+
+
+            <!-- Page Header -->
+
+
+            <div class="card shadow-sm mb-4">
+
+
+            <div class="card-header">
+            Page Header
+            </div>
+
+
+            <div class="card-body">
+
+
+            <label class="form-label">
+            Title
+            </label>
+
+            <input class="form-control mb-3"
+            value="Get Involved">
+
+
+            <label class="form-label">
+            Subtitle
+            </label>
+
+
+            <textarea class="form-control"
+            rows="3">
+            Join our mission to empower the women of Swat. Every contribution counts.
+            </textarea>
+
+
+
+            </div>
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <!-- Volunteer Section -->
+
+
+            <div class="card shadow-sm mb-4">
+
+
+            <div class="card-header">
+            Volunteer Section
+            </div>
+
+
+
+            <div class="card-body">
+
+
+            <label>
+            Heading
+            </label>
+
+            <input class="form-control mb-3"
+            value="Become a Volunteer">
+
+
+
+            <label>
+            Description
+            </label>
+
+
+            <textarea class="form-control mb-3"
+            rows="3">
+            Share your time and skills to help us grow.
+            </textarea>
+
+
+
+
+            </div>
+
+
+            </div>
+
+
+
+
+
+
+
+
+            <!-- Volunteer Applications -->
+
+
+            <div class="card shadow-sm mb-4">
+
+
+            <div class="card-header">
+
+            Volunteer Applications
+
+            </div>
+
+
+
+            <div class="card-body">
+
+
+            <div class="table-responsive">
+
+
+            <table class="table table-bordered">
+
+
+            <thead class="table-light">
+
+            <tr>
+
+            <th>#</th>
+
+            <th>Name</th>
+
+            <th>Email</th>
+
+            <th>Phone</th>
+
+            <th>Skills</th>
+
+            <th>Message</th>
+
+            <th>Action</th>
+
+            </tr>
+
+            </thead>
+
+
+
+            <tbody id="volunteerTable">
+
+
+            <tr>
+
+            <td>1</td>
+
+            <td>Ali Khan</td>
+
+            <td>
+            ali@gmail.com
+            </td>
+
+
+            <td>
+            03000000000
+            </td>
+
+
+            <td>
+            Teaching
+            </td>
+
+
+            <td>
+
+            <button class="btn btn-info btn-sm viewMessage"
+            data-message="I want to support girls education programs.">
+
+            View
+
+            </button>
+
+            </td>
+
+
+            <td>
+
+            <button class="btn btn-danger btn-sm deleteRow">
+            Delete
+            </button>
+
+            </td>
+
+
+            </tr>
+
+
+            </tbody>
+
+
+            </table>
+
+
+            </div>
+
+
+            </div>
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <!-- Partner Section -->
+
+
+            <div class="card shadow-sm mb-4">
+
+
+            <div class="card-header">
+            Partner Section
+            </div>
+
+
+
+            <div class="card-body">
+
+
+            <label>
+            Heading
+            </label>
+
+            <input class="form-control mb-3"
+            value="Become a Partner">
+
+
+
+            <label>
+            Description
+            </label>
+
+
+            <textarea class="form-control"
+            rows="3">
+            We welcome collaborations with organizations that share our vision.
+            </textarea>
+
+
+
+            </div>
+
+
+            </div>
+
+
+
+
+
+
+
+
+            <!-- Partner Inquiries -->
+
+
+            <div class="card shadow-sm mb-4">
+
+
+            <div class="card-header">
+
+            Partner Inquiries
+
+            </div>
+
+
+
+            <div class="card-body">
+
+
+            <div class="table-responsive">
+
+
+            <table class="table table-bordered">
+
+
+            <thead class="table-light">
+
+
+            <tr>
+
+            <th>#</th>
+
+            <th>Organization</th>
+
+            <th>Representative</th>
+
+            <th>Purpose</th>
+
+            <th>Message</th>
+
+            <th>Action</th>
+
+            </tr>
+
+
+            </thead>
+
+
+
+            <tbody id="partnerTable">
+
+
+            <tr>
+
+            <td>
+            1
+            </td>
+
+
+            <td>
+            ABC Foundation
+            </td>
+
+
+            <td>
+            Ahmed Khan
+            </td>
+
+
+            <td>
+            Educational Support
+            </td>
+
+
+            <td>
+
+            <button class="btn btn-info btn-sm viewMessage"
+            data-message="We want to collaborate for educational programs and community awareness campaigns.">
+
+            View
+
+            </button>
+
+            </td>
+
+
+            <td>
+
+            <button class="btn btn-danger btn-sm deleteRow">
+            Delete
+            </button>
+
+
+            </td>
+
+
+            </tr>
+
+
+            </tbody>
+
+
+
+            </table>
+
+
+            </div>
+
+
+            </div>
+
+
+            </div>
+
+
+
+
+
+
+
+            </div>
+
+            </div>
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <!-- Message Modal -->
+
+
+            <div class="modal fade" id="messageModal">
+
+
+            <div class="modal-dialog">
+
+
+            <div class="modal-content">
+
+
+            <div class="modal-header">
+
+            <h5 class="modal-title">
+            Full Message
+            </h5>
+
+
+            <button class="btn-close"
+            data-bs-dismiss="modal"></button>
+
+
+            </div>
+
+
+
+            <div class="modal-body">
+
+
+            <p id="fullMessage"></p>
+
+
+            </div>
+
+
+
+            </div>
+
+
+            </div>
+
+
+            </div>
+
+
+<script src="assets/js/main.js"></script>
+
+<script>
+  // Delete rows
+
+
+document
+.querySelectorAll(".deleteRow")
+.forEach(function(button){
+
+
+button.addEventListener("click",function(){
+
+
+this.closest("tr").remove();
+
+
+});
+
+
+});
+
+
+
+
+
+// Message View Modal
+
+
+document
+.querySelectorAll(".viewMessage")
+.forEach(function(button){
+
+
+
+button.addEventListener("click",function(){
+
+
+let message=this.dataset.message;
+
+
+document.getElementById("fullMessage").innerText=message;
+
+
+
+let modal=new bootstrap.Modal(
+document.getElementById("messageModal")
+);
+
+
+modal.show();
+
+
+
+});
+
+
+});
+
+
+
+
+
+// Save Button
+
+
+document
+.querySelector(".btn-success")
+.addEventListener("click",function(){
+
+
+alert("Get Involved page saved successfully");
+
+
+});
+
+
+</script>
+
+</body>
+</html>

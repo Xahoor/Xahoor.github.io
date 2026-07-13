@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWRI Admin</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+    <style>
+
+body{
+    background:#f4f6f9;
+    font-family:Segoe UI,sans-serif;
+}
+
+.card{
+    border:none;
+    border-radius:12px;
+}
+
+.card-header{
+    background:#fff;
+    font-weight:600;
+    font-size:18px;
+}
+
+.form-control{
+    border-radius:8px;
+}
+
+textarea{
+    resize:none;
+}
+
+#heroPreview{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border:1px solid #ddd;
+}
+
+.btn-success{
+    border-radius:8px;
+}
+
+.table td,
+.table th{
+    vertical-align:middle;
+}
+
+
+    </style>
+
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="admin-wrapper">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-header">
+            <h4>SWRI Admin</h4>
+
+            <button class="btn-close d-lg-none" id="closeSidebar"></button>
+        </div>
+
+        <ul class="sidebar-menu">
+
+            <li>
+                <a href="dashboard.html">
+                    <i class="fas fa-house"></i>
+                    Home Page
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html">
+                    <i class="fas fa-circle-info"></i>
+                    About Us
+                </a>
+            </li>
+
+            <li>
+                <a href="programs.html">
+                    <i class="fas fa-book-open"></i>
+                    Programs
+                </a>
+            </li>
+
+            <li>
+                <a href="leadership.html">
+                    <i class="fas fa-users"></i>
+                    Leadership
+                </a>
+            </li>
+
+            <li>
+                <a href="news.html">
+                    <i class="fas fa-newspaper"></i>
+                    News & Events
+                </a>
+            </li>
+            
+            <li>
+                <a href="get-involved.html">
+                    <i class="fas fa-handshake"></i>
+                    Contributors
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    <i class="fas fa-envelope"></i>
+                    Contact
+                </a>
+            </li>
+
+            <li>
+                <a href="Setting.html">
+                    <i class="fas fa-cog"></i>
+                    Setting
+                </a>
+            </li>
+
+            <li>
+                <a href="Logout.html">
+                    <i class="fas fa-sign-out"></i>
+                    Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Overlay -->
+    <div class="sidebar-overlay" id="overlay"></div>
+
+    <!-- Main -->
+    <div class="main-content">
+
+        <!-- Navbar -->
+
+        <nav class="navbar bg-white shadow-sm px-3">
+
+            <button class="btn btn-light d-lg-none" id="openSidebar">
+
+                <i class="fas fa-bars"></i>
+
+            </button>
+
+            <h5 class="ms-2 mb-0">
+                Homepage Management
+            </h5>
+
+        </nav>
+
+        <div class="p-4">
+
+            
+    <div class="container-fluid py-4">
+
+    <div class="d-flex mb-4">
+
+
+        <button class="btn btn-success px-4 ms-auto">
+        <i class="fas fa-save me-2"></i>
+        Save Homepage
+        </button>
+
+    </div>
+
+    <!-- HERO -->
+
+    <div class="card shadow-sm mb-4">
+
+    <div class="card-header">
+
+    Hero Section
+
+    </div>
+
+    <div class="card-body">
+
+    <div class="row">
+
+    <div class="col-lg-8">
+
+    <label class="form-label">Title</label>
+
+    <input type="text"
+    class="form-control mb-3">
+
+    <label class="form-label">Subtitle</label>
+
+    <input type="text"
+    class="form-control mb-3">
+
+    <label class="form-label">Description</label>
+
+    <textarea class="form-control"
+    rows="5"></textarea>
+
+    </div>
+
+    <div class="col-lg-4">
+
+    <label class="form-label">
+    Hero Image
+    </label>
+
+    <img
+    src="https://via.placeholder.com/350x220"
+    class="img-fluid rounded shadow mb-3"
+    id="heroPreview">
+
+    <input
+    type="file"
+    class="form-control"
+    id="heroImage">
+
+    </div>
+
+    </div>
+
+    <hr>
+
+    <div class="row">
+
+    <div class="col-md-3">
+
+    <input class="form-control"
+    placeholder="Button 1 Text">
+
+    </div>
+
+    <div class="col-md-3">
+
+    <input class="form-control"
+    placeholder="Button 1 Link">
+
+    </div>
+
+    <div class="col-md-3">
+
+    <input class="form-control"
+    placeholder="Button 2 Text">
+
+    </div>
+
+    <div class="col-md-3">
+
+    <input class="form-control"
+    placeholder="Button 2 Link">
+
+    </div>
+
+    </div>
+
+    </div>
+
+    </div>
+
+    <!-- ABOUT -->
+
+    <div class="card shadow-sm mb-4">
+
+    <div class="card-header">
+
+    About Section
+
+    </div>
+
+    <div class="card-body">
+
+    <input
+    class="form-control mb-3"
+    placeholder="Heading">
+
+    <textarea
+    class="form-control mb-3"
+    rows="5"
+    placeholder="Paragraph 1"></textarea>
+
+    <textarea
+    class="form-control mb-3"
+    rows="5"
+    placeholder="Paragraph 2"></textarea>
+
+    <input
+    type="file"
+    class="form-control">
+
+    </div>
+
+    </div>
+
+    <!-- Vision Mission -->
+
+    <div class="row">
+
+    <div class="col-lg-6">
+
+    <div class="card shadow-sm mb-4">
+
+    <div class="card-header">
+
+    Vision
+
+    </div>
+
+    <div class="card-body">
+
+    <input class="form-control mb-3"
+    placeholder="Vision Title">
+
+    <textarea
+    class="form-control"
+    rows="6"></textarea>
+
+    </div>
+
+    </div>
+
+    </div>
+
+    <div class="col-lg-6">
+
+    <div class="card shadow-sm mb-4">
+
+    <div class="card-header">
+
+    Mission
+
+    </div>
+
+    <div class="card-body">
+
+    <input class="form-control mb-3"
+    placeholder="Mission Title">
+
+    <textarea
+    class="form-control"
+    rows="6"></textarea>
+
+    </div>
+
+    </div>
+
+    </div>
+
+    </div>
+
+    <!-- Focus Areas -->
+
+    <div class="card shadow-sm mb-4">
+
+    <div class="card-header d-flex justify-content-between">
+
+    <span>Focus Areas</span>
+
+    <button
+    class="btn btn-primary btn-sm"
+    id="addFocus">
+
+    <i class="fas fa-plus"></i>
+
+    Add
+
+    </button>
+
+    </div>
+
+    <div class="card-body">
+
+    <table class="table table-bordered">
+
+    <thead>
+
+    <tr>
+
+    <th width="70">
+    Icon
+    </th>
+
+    <th>
+    Title
+    </th>
+
+    <th width="120">
+    Action
+    </th>
+
+    </tr>
+
+    </thead>
+
+    <tbody id="focusTable">
+
+    <tr>
+
+    <td>
+
+    <input class="form-control">
+
+    </td>
+
+    <td>
+
+    <input class="form-control">
+
+    </td>
+
+    <td>
+
+    <button class="btn btn-danger btn-sm deleteRow">
+
+    Delete
+
+    </button>
+
+    </td>
+
+    </tr>
+
+    </tbody>
+
+    </table>
+
+    </div>
+
+    </div>
+
+    <!-- Why Choose -->
+
+    <div class="card shadow-sm mb-4">
+
+    <div class="card-header d-flex justify-content-between">
+
+    <span>
+
+    Why Choose Us
+
+    </span>
+
+    <button
+    class="btn btn-primary btn-sm"
+    id="addBenefit">
+
+    <i class="fas fa-plus"></i>
+
+    Add
+
+    </button>
+
+    </div>
+
+    <div class="card-body">
+
+    <div id="benefits">
+
+    <div class="input-group mb-3">
+
+    <input
+    class="form-control"
+    placeholder="Benefit">
+
+    <button
+    class="btn btn-danger removeBenefit">
+
+    Delete
+
+    </button>
+
+    </div>
+
+    </div>
+
+    </div>
+
+    </div>
+
+    <!-- CTA -->
+
+    <div class="card shadow-sm mb-4">
+
+    <div class="card-header">
+
+    Call To Action
+
+    </div>
+
+    <div class="card-body">
+
+    <input
+    class="form-control mb-3"
+    placeholder="Heading">
+
+    <input
+    class="form-control mb-3"
+    placeholder="Button 1">
+
+    <input
+    class="form-control mb-3"
+    placeholder="Button 2">
+
+    <input
+    class="form-control"
+    placeholder="Button 3">
+
+    </div>
+
+    </div>
+
+    <!-- Footer -->
+
+    <div class="card shadow-sm">
+
+    <div class="card-header">
+
+    Footer
+
+    </div>
+
+    <div class="card-body">
+
+    <textarea
+    class="form-control mb-3"
+    rows="4"
+    placeholder="Mission"></textarea>
+
+    <input
+    class="form-control mb-3"
+    placeholder="Address">
+
+    <input
+    class="form-control mb-3"
+    placeholder="Email">
+
+    <input
+    class="form-control mb-3"
+    placeholder="Facebook">
+
+    <input
+    class="form-control mb-3"
+    placeholder="Instagram">
+
+    <input
+    class="form-control mb-3"
+    placeholder="LinkedIn">
+
+    <input
+    class="form-control"
+    placeholder="Youtube">
+
+    </div>
+
+    </div>
+
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Back To Top Button -->
+
+<style>
+    /* Back To Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background: #0d6efd;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    z-index: 9999;
+}
+
+.back-to-top:hover {
+    background: #0b5ed7;
+    transform: translateY(-3px);
+}
+</style>
+<button id="backToTop" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+    // Hero Image Preview
+
+document.getElementById("heroImage").addEventListener("change",function(e){
+
+const reader=new FileReader();
+
+reader.onload=function(){
+
+document.getElementById("heroPreview").src=reader.result;
+
+}
+
+reader.readAsDataURL(e.target.files[0]);
+
+});
+
+// Back To Top Button
+
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", function () {
+
+    if (window.scrollY > 300) {
+        backToTop.style.display = "flex";
+    } else {
+        backToTop.style.display = "none";
+    }
+
+});
+
+
+backToTop.addEventListener("click", function () {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+});
+</script>
+
+</body>
+</html>
