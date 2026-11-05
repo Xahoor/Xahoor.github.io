@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PakBuild Estimator - Civil Engineering & Construction Material Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- HEADER & APP BAR -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-group">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 21h18M5 21V7l7-4 7 4v14M9 10h1M14 10h1M9 14h1M14 14h1M9 18h1M14 18h1"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="app-title">PakBuild Estimator</h1>
+          <p class="app-subtitle">Civil Engineering & Construction Material Calculator • Pakistan Context</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Global Unit Switcher -->
+        <div class="unit-toggle-group" title="Select preferred measurement system">
+          <span class="unit-label">Unit System:</span>
+          <div class="segmented-control" id="globalUnitControl">
+            <button type="button" class="segment-btn active" data-unit="imperial">Imperial (Ft / In / CFT)</button>
+            <button type="button" class="segment-btn" data-unit="metric">Metric (M / Cm / M³)</button>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-secondary btn-sm" id="btnOpenSaved">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+            <polyline points="17 21 17 13 7 13 7 21"/>
+            <polyline points="7 3 7 8 15 8"/>
+          </svg>
+          Saved Projects (<span id="savedCount">0</span>)
+        </button>
+
+        <button type="button" class="btn btn-secondary btn-sm" id="btnPrintTop">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+            <polyline points="6 9 6 2 18 2 18 9"/>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+            <rect x="6" y="14" width="12" height="8"/>
+          </svg>
+          Print Report
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ENGINEERING DISCLAIMER BANNER -->
+  <section class="disclaimer-banner">
+    <div class="banner-inner">
+      <div class="disclaimer-icon">⚠️</div>
+      <div class="disclaimer-text">
+        <strong>Civil Engineering Notice:</strong> This calculator provides preliminary material quantity estimates for planning, budgeting, and purchasing guidance. Actual site quantities vary due to workmanship, compaction, uneven surfaces, and site waste. Structural elements (slabs, columns, beams, foundations) require design verification by a licensed structural engineer.
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN APP CONTAINER -->
+  <main class="main-layout">
+    <!-- LEFT PANEL: CONTROLS & INPUT FORM -->
+    <section class="calculator-panel">
+      <!-- PROJECT DETAILS CARD -->
+      <div class="card project-meta-card">
+        <div class="card-header">
+          <h2 class="card-title">1. Project Specifications</h2>
+          <span class="badge badge-primary">Step 1</span>
+        </div>
+        <div class="card-body">
+          <div class="form-grid grid-3">
+            <div class="form-group">
+              <label for="projectName">Project / Client Name <span class="text-muted">(Optional)</span></label>
+              <input type="text" id="projectName" class="form-control" placeholder="e.g. 5 Marla House - Tariq Block" value="My Construction Estimate">
+            </div>
+
+            <div class="form-group">
+              <label for="projectLocation">Location in Pakistan <span class="text-muted">(Optional)</span></label>
+              <input type="text" id="projectLocation" class="form-control" placeholder="e.g. Lahore, Karachi, Islamabad" value="Lahore, Punjab">
+            </div>
+
+            <div class="form-group">
+              <label for="wastageAllowance">
+                General Wastage Allowance
+                <span class="tooltip-trigger" data-tooltip="Standard field practice accounts for 3% to 10% wastage on bricks, cement handling, and sand/crush spillage.">ⓘ</span>
+              </label>
+              <div class="input-with-addon">
+                <input type="number" id="wastageAllowance" class="form-control" min="0" max="25" step="0.5" value="5">
+                <span class="input-addon">%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONSTRUCTION TYPE SELECTOR -->
+      <div class="card construction-selector-card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title">2. Select Construction Type</h2>
+            <p class="card-desc">Choose from 15 civil engineering member types to load tailored dimensional and mix inputs.</p>
+          </div>
+          <span class="badge badge-primary">Step 2</span>
+        </div>
+
+        <div class="card-body">
+          <!-- Mobile Dropdown Selector -->
+          <div class="mobile-type-select-wrap">
+            <label for="constructionTypeSelect">Choose Construction Element:</label>
+            <select id="constructionTypeSelect" class="form-control form-select">
+              <option value="brick_wall">1. Brick Wall</option>
+              <option value="room">2. Single Room Construction</option>
+              <option value="complete_house">3. Complete House Construction</option>
+              <option value="boundary_wall">4. Boundary Wall</option>
+              <option value="foundation">5. Foundation / Strip Footing</option>
+              <option value="roof_slab" selected>6. Roof / RCC Slab</option>
+              <option value="concrete_floor">7. Concrete Floor</option>
+              <option value="columns">8. Columns (RCC)</option>
+              <option value="beams">9. Beams (RCC)</option>
+              <option value="plastering">10. Plastering (Internal / External)</option>
+              <option value="brick_masonry">11. Brick Masonry (Direct Volume)</option>
+              <option value="pcc">12. PCC (Plain Cement Concrete)</option>
+              <option value="rcc">13. RCC (Reinforced Cement Concrete)</option>
+              <option value="staircase">14. Staircase (RCC Steps & Waist)</option>
+              <option value="custom">15. Custom Construction Calculation</option>
+            </select>
+          </div>
+
+          <!-- Desktop Visual Grid Selector -->
+          <div class="type-grid" id="typeGrid">
+            <!-- 1. Brick Wall -->
+            <button type="button" class="type-btn" data-type="brick_wall">
+              <span class="type-icon">🧱</span>
+              <span class="type-title">Brick Wall</span>
+              <span class="type-hint">4.5", 9", 13.5" walls with doors & windows</span>
+            </button>
+            <!-- 2. Room -->
+            <button type="button" class="type-btn" data-type="room">
+              <span class="type-icon">🏠</span>
+              <span class="type-title">Single Room</span>
+              <span class="type-hint">Foundation, walls, slab, floor & plaster</span>
+            </button>
+            <!-- 3. Complete House -->
+            <button type="button" class="type-btn" data-type="complete_house">
+              <span class="type-icon">🏘️</span>
+              <span class="type-title">Complete House</span>
+              <span class="type-hint">3, 5, 10 Marla or 1 Kanal multi-storey</span>
+            </button>
+            <!-- 4. Boundary Wall -->
+            <button type="button" class="type-btn" data-type="boundary_wall">
+              <span class="type-icon">🛡️</span>
+              <span class="type-title">Boundary Wall</span>
+              <span class="type-hint">Perimeter wall with pillars & coping</span>
+            </button>
+            <!-- 5. Foundation -->
+            <button type="button" class="type-btn" data-type="foundation">
+              <span class="type-icon">⛏️</span>
+              <span class="type-title">Foundation</span>
+              <span class="type-hint">Stepped footing, trench excavation & PCC</span>
+            </button>
+            <!-- 6. Roof Slab -->
+            <button type="button" class="type-btn active" data-type="roof_slab">
+              <span class="type-icon">🏗️</span>
+              <span class="type-title">Roof / RCC Slab</span>
+              <span class="type-hint">Slab concrete, sutar rebar & spacing</span>
+            </button>
+            <!-- 7. Concrete Floor -->
+            <button type="button" class="type-btn" data-type="concrete_floor">
+              <span class="type-icon">🔲</span>
+              <span class="type-title">Concrete Floor</span>
+              <span class="type-hint">Sub-base, PCC bedding & top screed</span>
+            </button>
+            <!-- 8. Columns -->
+            <button type="button" class="type-btn" data-type="columns">
+              <span class="type-icon">🏛️</span>
+              <span class="type-title">Columns (RCC)</span>
+              <span class="type-hint">Pillars with vertical bars & lateral ties</span>
+            </button>
+            <!-- 9. Beams -->
+            <button type="button" class="type-btn" data-type="beams">
+              <span class="type-icon">📏</span>
+              <span class="type-title">Beams (RCC)</span>
+              <span class="type-hint">Lintel / plinth / roof beams & stirrups</span>
+            </button>
+            <!-- 10. Plastering -->
+            <button type="button" class="type-btn" data-type="plastering">
+              <span class="type-icon">🖌️</span>
+              <span class="type-title">Plastering</span>
+              <span class="type-hint">Single/double coat with opening rules</span>
+            </button>
+            <!-- 11. Brick Masonry -->
+            <button type="button" class="type-btn" data-type="brick_masonry">
+              <span class="type-icon">🧱</span>
+              <span class="type-title">Brick Masonry</span>
+              <span class="type-hint">Volume-based brick & mortar quantities</span>
+            </button>
+            <!-- 12. PCC -->
+            <button type="button" class="type-btn" data-type="pcc">
+              <span class="type-icon">🧪</span>
+              <span class="type-title">PCC Concrete</span>
+              <span class="type-hint">Plain concrete 1:3:6, 1:4:8, 1:2:4</span>
+            </button>
+            <!-- 13. RCC -->
+            <button type="button" class="type-btn" data-type="rcc">
+              <span class="type-icon">🔩</span>
+              <span class="type-title">RCC Concrete</span>
+              <span class="type-hint">Reinforced concrete & steel design</span>
+            </button>
+            <!-- 14. Staircase -->
+            <button type="button" class="type-btn" data-type="staircase">
+              <span class="type-icon">🪜</span>
+              <span class="type-title">Staircase</span>
+              <span class="type-hint">Steps, tread, rise & waist slab</span>
+            </button>
+            <!-- 15. Custom -->
+            <button type="button" class="type-btn" data-type="custom">
+              <span class="type-icon">⚙️</span>
+              <span class="type-title">Custom Spec</span>
+              <span class="type-hint">Arbitrary volume, mix ratios & steel</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- DYNAMIC INPUT FORM CONTAINER -->
+      <form id="calculatorForm" novalidate>
+        <div class="card form-container-card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title" id="formHeaderTitle">3. Dimensions & Specifications</h2>
+              <p class="card-desc" id="formHeaderDesc">Enter measurements and material mix details.</p>
+            </div>
+            <span class="badge badge-primary">Step 3</span>
+          </div>
+
+          <div class="card-body">
+            <!-- Dynamic Fields Render Target -->
+            <div id="dynamicFormFields">
+              <!-- Dynamically populated via JavaScript -->
+            </div>
+
+            <!-- DYNAMIC OPENINGS SECTION (Rendered when applicable) -->
+            <div id="openingsSection" class="openings-section" style="display: none;">
+              <div class="openings-header">
+                <div>
+                  <h3 class="subsection-title">Deductions for Doors, Windows & Openings</h3>
+                  <p class="text-muted text-sm">Door and window areas are subtracted from gross wall area to avoid overestimating bricks and mortar.</p>
+                </div>
+                <button type="button" class="btn btn-outline btn-sm" id="btnAddOpening">
+                  + Add Opening
+                </button>
+              </div>
+
+              <div class="table-responsive">
+                <table class="table openings-table" id="openingsTable">
+                  <thead>
+                    <tr>
+                      <th>Opening Type</th>
+                      <th>Width (<span class="unit-len-label">ft</span>)</th>
+                      <th>Height (<span class="unit-len-label">ft</span>)</th>
+                      <th>Qty</th>
+                      <th>Total Deducted Area</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="openingsTableBody">
+                    <!-- Dynamic Opening Rows -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- STEEL / SUTAR SPECIFICATION SECTION (Rendered when RCC / Steel is involved) -->
+            <div id="steelDetailSection" class="steel-section" style="display: none;">
+              <div class="section-title-bar">
+                <h3 class="subsection-title">Steel Reinforcement Details (Sutar System)</h3>
+                <span class="badge badge-info">Pakistan Market Standard</span>
+              </div>
+              <p class="text-sm text-muted mb-3">
+                In Pakistan, rebar is traditionally specified in <strong>Sutar</strong> (eighths of an inch, e.g., 4 Sutar = 1/2" ≈ 12.7 mm). Confirm the millimeter diameter below before calculation.
+              </p>
+
+              <div class="form-grid grid-3" id="steelInputsGrid">
+                <!-- Populated dynamically based on element (slab, column, beam, etc.) -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MATERIAL PRICE & COST ESTIMATOR (OPTIONAL SECTION) -->
+        <div class="card cost-card">
+          <div class="card-header accordion-toggle" id="costAccordionHeader">
+            <div class="header-left">
+              <span class="accordion-icon">💰</span>
+              <div>
+                <h2 class="card-title">4. Material Rates & Cost Estimation (Optional)</h2>
+                <p class="card-desc">Enter prevailing market rates in Pakistani Rupees (PKR) or your local currency.</p>
+              </div>
+            </div>
+            <span class="accordion-arrow">▼</span>
+          </div>
+
+          <div class="card-body accordion-content" id="costAccordionBody">
+            <div class="cost-intro-alert">
+              <span>💡 Rates are editable based on your local market (e.g. Lahore, Karachi, Rawalpindi/Islamabad). Total excludes transport, tax, and site labor unless entered.</span>
+            </div>
+            <div class="form-grid grid-3">
+              <div class="form-group" id="costGroupBrick">
+                <label for="rateBrick">Brick Price (PKR / piece)</label>
+                <div class="input-with-addon">
+                  <span class="input-addon">Rs.</span>
+                  <input type="number" id="rateBrick" class="form-control rate-input" min="0" step="0.5" value="27.0">
+                </div>
+              </div>
+
+              <div class="form-group" id="costGroupCement">
+                <label for="rateCement">Cement (PKR / 50 kg Bag)</label>
+                <div class="input-with-addon">
+                  <span class="input-addon">Rs.</span>
+                  <input type="number" id="rateCement" class="form-control rate-input" min="0" step="10" value="1600">
+                </div>
+              </div>
+
+              <div class="form-group" id="costGroupSand">
+                <label for="rateSand">Sand (PKR / CFT)</label>
+                <div class="input-with-addon">
+                  <span class="input-addon">Rs.</span>
+                  <input type="number" id="rateSand" class="form-control rate-input" min="0" step="1" value="100">
+                </div>
+                <span class="field-hint">e.g. Ravi / Chenab / Lawrencepur sand</span>
+              </div>
+
+              <div class="form-group" id="costGroupCrush">
+                <label for="rateCrush">Crush / Aggregate (PKR / CFT)</label>
+                <div class="input-with-addon">
+                  <span class="input-addon">Rs.</span>
+                  <input type="number" id="rateCrush" class="form-control rate-input" min="0" step="1" value="95">
+                </div>
+                <span class="field-hint">e.g. Margalla / Sargodha / Dina crush</span>
+              </div>
+
+              <div class="form-group" id="costGroupSteel">
+                <label for="rateSteel">Steel Rebar (PKR / kg)</label>
+                <div class="input-with-addon">
+                  <span class="input-addon">Rs.</span>
+                  <input type="number" id="rateSteel" class="form-control rate-input" min="0" step="1" value="300">
+                </div>
+                <span class="field-hint">Grade 60 deformed rebar</span>
+              </div>
+
+              <div class="form-group" id="costGroupLabor">
+                <label for="rateLabor">Labor Rate (PKR / sq ft or lump sum)</label>
+                <div class="input-with-addon">
+                  <span class="input-addon">Rs.</span>
+                  <input type="number" id="rateLabor" class="form-control rate-input" min="0" step="5" value="0">
+                </div>
+                <span class="field-hint">Leave 0 if material only</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FORM ACTION BUTTONS -->
+        <div class="form-actions-bar">
+          <button type="submit" class="btn btn-primary btn-lg" id="btnCalculate">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+              <rect x="4" y="2" width="16" height="20" rx="2"/>
+              <line x1="8" y1="6" x2="16" y2="6"/>
+              <line x1="16" y1="14" x2="16" y2="18"/>
+              <path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/>
+            </svg>
+            Calculate Material Quantities
+          </button>
+
+          <button type="button" class="btn btn-outline" id="btnReset">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+              <path d="M3 3v5h5"/>
+            </svg>
+            Reset All
+          </button>
+
+          <button type="button" class="btn btn-secondary" id="btnSaveEstimate">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+              <polyline points="17 21 17 13 7 13 7 21"/>
+              <polyline points="7 3 7 8 15 8"/>
+            </svg>
+            Save to Browser
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- RIGHT PANEL: RESULTS DASHBOARD -->
+    <section class="results-panel" id="resultsSection">
+      <!-- PLACEHOLDER STATE (Before calculation) -->
+      <div class="results-placeholder" id="resultsPlaceholder">
+        <div class="placeholder-content">
+          <div class="placeholder-icon">📐</div>
+          <h3>Ready for Calculation</h3>
+          <p>Fill in your structural dimensions on the left and click <strong>"Calculate Material Quantities"</strong> to generate your itemized Bill of Quantities (BOQ), civil engineering notes, and cost estimate.</p>
+        </div>
+      </div>
+
+      <!-- ACTIVE RESULTS CONTAINER (Visible after calculation) -->
+      <div class="results-container" id="resultsContainer" style="display: none;">
+        <!-- REPORT TITLE BLOCK -->
+        <div class="report-header-block">
+          <div class="report-title-row">
+            <div>
+              <span class="report-tag" id="resTagCategory">Roof Slab</span>
+              <h2 class="report-title" id="resReportTitle">Project Material Estimate</h2>
+              <p class="report-meta" id="resReportMeta">Location: Lahore • Calculated on: Today</p>
+            </div>
+            <div class="report-actions">
+              <button type="button" class="btn btn-secondary btn-sm" id="btnExportCSV">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                Export CSV
+              </button>
+              <button type="button" class="btn btn-primary btn-sm" id="btnPrintReport">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+                  <polyline points="6 9 6 2 18 2 18 9"/>
+                  <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                  <rect x="6" y="14" width="12" height="8"/>
+                </svg>
+                Print / Save PDF
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- KPI SUMMARY CARDS -->
+        <div class="summary-cards-grid" id="summaryCardsGrid">
+          <!-- Dynamically injected summary cards -->
+        </div>
+
+        <!-- PLAIN LANGUAGE DESCRIPTION -->
+        <div class="card narrative-card">
+          <div class="card-header">
+            <h3 class="card-title">
+              <span class="narrative-icon">📋</span>
+              Plain-Language Engineering Narrative
+            </h3>
+            <span class="badge badge-success">Automated QS Review</span>
+          </div>
+          <div class="card-body">
+            <div class="narrative-text" id="resultNarrative">
+              <!-- Dynamically populated explanation text -->
+            </div>
+          </div>
+        </div>
+
+        <!-- DETAILED BILL OF QUANTITIES (BOQ) TABLE -->
+        <div class="card table-card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Itemized Material Bill of Quantities (BOQ)</h3>
+              <p class="card-desc">Detailed quantities showing base net calculation, wastage allowance, and final required purchase volume.</p>
+            </div>
+            <span class="badge badge-info" id="boqItemsCount">5 Items</span>
+          </div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table boq-table" id="boqTable">
+                <thead>
+                  <tr>
+                    <th>Material Description</th>
+                    <th>Calculated Net</th>
+                    <th>Wastage</th>
+                    <th>Final Quantity</th>
+                    <th>Primary Unit</th>
+                    <th>Equivalent Unit</th>
+                    <th>Unit Rate (PKR)</th>
+                    <th>Total Cost (PKR)</th>
+                  </tr>
+                </thead>
+                <tbody id="boqTableBody">
+                  <!-- Dynamically populated BOQ rows -->
+                </tbody>
+                <tfoot id="boqTableFoot">
+                  <!-- Total Cost Row -->
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ASSUMPTIONS, FORMULAS & CALCULATION DETAILS (EXPANDABLE) -->
+        <div class="card assumptions-card">
+          <div class="card-header accordion-toggle" id="assumptionsAccordionHeader">
+            <div class="header-left">
+              <span class="accordion-icon">🔍</span>
+              <div>
+                <h3 class="card-title">Assumptions, Engineering Formulas & Math Breakdown</h3>
+                <p class="card-desc">Inspect exact dimensions used, dry volume multipliers, and standard civil engineering constants.</p>
+              </div>
+            </div>
+            <span class="accordion-arrow">▼</span>
+          </div>
+          <div class="card-body accordion-content" id="assumptionsAccordionBody">
+            <div class="assumptions-content" id="assumptionsContent">
+              <!-- Dynamically populated assumptions and steps -->
+            </div>
+          </div>
+        </div>
+
+        <!-- LEGAL & STRUCTURAL DISCLAIMER FOOTER -->
+        <div class="report-disclaimer">
+          <h4>Engineering Disclaimer</h4>
+          <p>This report has been generated algorithmically by the PakBuild Estimator. Quantities are based on standard Pakistani and international quantity surveying codes. All structural elements must be approved by a PEC-registered professional civil/structural engineer before site execution. Steel bar bending schedules (BBS) should be prepared from structural working drawings.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SAVED PROJECTS MODAL -->
+  <div class="modal-backdrop" id="savedModal" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Saved Calculations & Estimates</h3>
+        <button type="button" class="modal-close" id="btnCloseSavedModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="savedListContainer" class="saved-list">
+          <!-- Dynamically populated saved calculations -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline btn-sm text-danger" id="btnClearAllSaved">Clear All Saved</button>
+        <button type="button" class="btn btn-secondary btn-sm" id="btnCloseSavedModalBtn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="app-footer">
+    <div class="footer-container">
+      <p>© 2026 PakBuild Estimator • Developed for Pakistani Engineers, Contractors, Masons & Homebuilders</p>
+      <p class="footer-credits">Compliant with standard civil engineering principles, metric/imperial quantity surveying, and local market trade practices.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
